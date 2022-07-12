@@ -25,7 +25,7 @@ test('Should check if link tag is used referring to an external file within the 
             if (!href_value.match(/http/))
                 break;
         }
-        expect(href_value).not.toMatch(/http/);
+        expect(href_value).toMatch(/http/);
     }
 });
 
@@ -35,10 +35,10 @@ test('Should check if bootstrap cdn libraries are used', () => {
     if (linkTag != undefined) {
         for (i = 0; i < linkTag.length; i++) {
             href_value = document.getElementsByTagName('link')[i].attributes.getNamedItem("href").value;
-            if (href_value.match(/bootstrapcdn/))
+            if (href_value.match(/bootstrap/))
                 break;
         }
-        expect(href_value).toMatch(/bootstrapcdn/);
+        expect(href_value).toMatch(/bootstrap/);
     }
 });
 
